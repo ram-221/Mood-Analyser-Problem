@@ -5,13 +5,22 @@ import org.junit.jupiter.api.Test;
 
 public class MoodAnalyserTest {
 
-/* analyseMood method can just return
-		Happy to pass this Test Case (TC)*/
-    @Test
-    public void givenMessage_WhenProper_ShouldReturnSad() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser();
-        String mood = moodAnalyser.analyserMood("I am in any mood");
-        System.out.println(mood);
-        Assertions.assertEquals("HAPPY", mood);
-    }
+	/* MoodAnalyser will have 2 Constructors 1.Default - MoodAnalyser() and with
+              2.Parameters – MoodAnalyser(message)*/
+
+	@Test
+	public void givenMessage_WhenProper_ShouldReturnSad() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
+		String sadMood = moodAnalyser.analyseMood();
+		System.out.println(sadMood);
+		Assertions.assertEquals("SAD", sadMood);
+	}
+
+	@Test
+	public void givenMessage_WhenProper_ShouldReturnHappy() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in happy mood");
+		String happyMood = moodAnalyser.analyseMood();
+		System.out.println(happyMood);
+		Assertions.assertEquals("HAPPY", happyMood);
+	}
 }
