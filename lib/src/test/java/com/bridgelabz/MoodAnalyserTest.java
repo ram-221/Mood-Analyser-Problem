@@ -7,7 +7,7 @@ public class MoodAnalyserTest {
 
 
     @Test
-    public void givenMessage_WhenProper_ShouldReturnSad() throws MoodAnalyserException {
+    public void givenMessage_WhenProper_ShouldReturnSad() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
         String sadMood = moodAnalyser.analyseMood();
         System.out.println(sadMood);
@@ -15,11 +15,18 @@ public class MoodAnalyserTest {
     }
 
     @Test
-    public void givenMessage_WhenProper_ShouldReturnHappy() throws MoodAnalyserException {
+    public void givenMessage_WhenProper_ShouldReturnHappy() {
         MoodAnalyser moodAnalyser = new MoodAnalyser("I am in happy mood");
         String happyMood = moodAnalyser.analyseMood();
         System.out.println(happyMood);
         Assertions.assertEquals("HAPPY", happyMood);
-
+    }
+    
+    @Test
+    public void givenMessage_WhenProper_ShouldReturnNull()  {
+    	MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+    	String nullMood = moodAnalyser.analyseMood();
+    	System.out.println(nullMood);
+    	Assertions.assertEquals("Invalid Mood", nullMood);
     }
 }
